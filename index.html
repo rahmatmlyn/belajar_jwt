@@ -24,10 +24,10 @@
       $(document).ready(function(){
         // ketika user login
         $("#form").submit(function(event){
-          var email    = $('#name').val();
+          var name    = $('#name').val();
           var email    = $('#email').val();
           var password = $('#password').val();
-          var email    = $('#password_confirmation').val();
+          var password_confirmation  = $('#password_confirmation').val();
 
           $.post("http://localhost:3000/signup", {name:name, email:email, password:password, password_confirmation:password_confirmation})
           .done(function(data){
