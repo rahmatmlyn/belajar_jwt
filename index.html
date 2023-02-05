@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+  </head>
+  <body>
+    <h1>Jwt Token</h1>
+
+    <!-- login -->
+    <form id="form">
+      <input type="name" name="name" id="name" />
+      <input type="email" name="email" id="email" />
+      <input type="password" name="password" id="password" />
+      <input type="password" name="password_confirmation" id="password_confirmation" />
+      <input type="submit" name="submit" value="login" />
+    </form>
+
+    <script>
+      $(document).ready(function(){
+        // ketika user login
+        $("#form").submit(function(event){
+          var email    = $('#name').val();
+          var email    = $('#email').val();
+          var password = $('#password').val();
+          var email    = $('#password_confirmation').val();
+
+          $.post("http://localhost:3000/signup", {name:name, email:email, password:password, password_confirmation:password_confirmation})
+          .done(function(data){
+            console.log(data);
+          });
+
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
