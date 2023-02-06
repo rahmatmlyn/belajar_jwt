@@ -32,11 +32,14 @@
           $.post("http://localhost:3000/signup", {name:name, email:email, password:password, password_confirmation:password_confirmation})
           .done(function(data){
             console.log(data);
+
           });
 
           event.preventDefault();
         });
       });
+
+      
     </script>
   </body>
 </html>
