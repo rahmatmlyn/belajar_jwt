@@ -20,6 +20,8 @@
       <input type="submit" name="submit" value="login" />
     </form>
 
+    <button type="button" id="getusers">Daftar User</button>
+
     <script>
       $(document).ready(function(){
         // ketika user login
@@ -31,12 +33,26 @@
 
           $.post("http://localhost:3000/signup", {name:name, email:email, password:password, password_confirmation:password_confirmation})
           .done(function(data){
-            console.log(data);
+            $.cookie('token', data.auth_token)
 
           });
 
           event.preventDefault();
         });
+
+        //ajax
+        $('#getusers').click(function(){
+          $.ajax({
+            type : "GET",
+            url : "http://localhost:3000/todos",
+            headers : {'Authorization' : $.cookie('token')},
+            success : function(data){
+              console.log(data);
+            }
+          });
+        });
+
+
       });
 
       
